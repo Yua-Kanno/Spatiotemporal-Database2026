@@ -1,0 +1,326 @@
+:root {
+    --primary-color: #1e3c72;
+    --primary-light: #2a5298;
+    --accent-color: #ff6b6b;
+    --bg-color: #f4f7f6;
+    --card-bg: #ffffff;
+    --text-main: #333333;
+    --text-muted: #666666;
+    --border-color: #e0e0e0;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.5;
+}
+
+/* ヘッダー */
+.app-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    color: white;
+    padding: 24px 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.header-content {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    opacity: 0.8;
+}
+
+.app-header h1 {
+    font-size: 1.5rem;
+    margin: 4px 0 8px 0;
+}
+
+.status-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    border-radius: 12px;
+}
+
+/* メインコンテナ（PC時左右分割） */
+.main-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: start;
+}
+
+@media (max-width: 768px) {
+    .main-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.left-panel, .right-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* PCスクロール時のマップ固定 */
+@media (min-width: 769px) {
+    .sticky-map {
+        position: sticky;
+        top: 20px;
+    }
+}
+
+/* カード共通 */
+.card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 16px 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    border: 1px solid var(--border-color);
+}
+
+.card-header h2 {
+    font-size: 1.05rem;
+    color: var(--primary-color);
+}
+
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* フォーム */
+.form-group-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.form-item label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 4px;
+}
+
+.text-input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.btn-group {
+    display: flex;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.btn-primary {
+    flex: 2;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-save {
+    width: 100%;
+    background: #e67e22;
+    color: white;
+    border: none;
+    padding: 9px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+.btn-save:hover {
+    background: #d35400;
+}
+
+.btn-outline-sm {
+    flex: 1;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    padding: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-app-open {
+    background: #28a745;
+    color: white;
+    border: none;
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* 保存済みリスト */
+.saved-list-container {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.saved-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f8f9fa;
+    border: 1px solid var(--border-color);
+    padding: 8px 12px;
+    border-radius: 6px;
+}
+
+.saved-info {
+    cursor: pointer;
+    flex: 1;
+}
+
+.saved-title {
+    font-weight: bold;
+    font-size: 0.85rem;
+    color: var(--primary-color);
+}
+
+.saved-sub {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.btn-del {
+    background: transparent;
+    border: none;
+    color: #cc0000;
+    cursor: pointer;
+    font-size: 0.8rem;
+    padding: 4px 8px;
+}
+
+/* 旅程チケット */
+.trip-ticket {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f8f9fa;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.trip-point {
+    text-align: center;
+    flex: 1;
+}
+
+.pt-label {
+    font-size: 0.65rem;
+    color: var(--text-muted);
+}
+
+.pt-name {
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+.pt-name.empty {
+    color: #bbb;
+    font-weight: normal;
+}
+
+.trip-divider {
+    text-align: center;
+    padding: 0 10px;
+}
+
+.car-icon {
+    font-size: 1.2rem;
+}
+
+/* タイムライン */
+.timeline-wrapper {
+    margin-top: 10px;
+}
+
+.timeline-list {
+    list-style: none;
+    border-left: 2px solid var(--primary-light);
+    padding-left: 14px;
+    margin-left: 6px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 12px;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -19px;
+    top: 6px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--primary-color);
+}
+
+.spot-name {
+    display: block;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.spot-time {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.empty-msg {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+/* マップエリア */
+#map-container {
+    width: 100%;
+    height: 480px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 10px;
+    background: #e5e3df;
+}
+
+#map-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
