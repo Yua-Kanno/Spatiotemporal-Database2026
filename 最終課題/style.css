@@ -2,6 +2,7 @@
     --primary-color: #1e3c72;
     --primary-light: #2a5298;
     --accent-color: #ff6b6b;
+    --green-color: #28a745;
     --bg-color: #f4f7f6;
     --card-bg: #ffffff;
     --text-main: #333333;
@@ -54,7 +55,7 @@ body {
     border-radius: 12px;
 }
 
-/* メインコンテナ（PC時左右分割） */
+/* メインコンテナ */
 .main-container {
     max-width: 1100px;
     margin: 0 auto;
@@ -129,6 +130,7 @@ body {
     font-size: 0.9rem;
 }
 
+/* ボタン群 */
 .btn-group {
     display: flex;
     gap: 8px;
@@ -147,7 +149,6 @@ body {
 }
 
 .btn-save {
-    width: 100%;
     background: #e67e22;
     color: white;
     border: none;
@@ -162,17 +163,32 @@ body {
     background: #d35400;
 }
 
+.btn-michi {
+    background: #fff8e7;
+    border: 1px solid #ffe0b2;
+    color: #d97706;
+    padding: 9px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+.btn-michi:hover {
+    background: #fef3c7;
+}
+
 .btn-outline-sm {
-    flex: 1;
     background: transparent;
     border: 1px solid var(--border-color);
     padding: 8px;
     border-radius: 6px;
     cursor: pointer;
+    font-size: 0.85rem;
 }
 
 .btn-app-open {
-    background: #28a745;
+    background: var(--green-color);
     color: white;
     border: none;
     font-size: 0.75rem;
@@ -180,6 +196,38 @@ body {
     border-radius: 4px;
     font-weight: bold;
     cursor: pointer;
+}
+
+/* マップタブ */
+.map-tab-group {
+    display: flex;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.map-tab {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: transparent;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: var(--text-muted);
+    transition: all 0.2s;
+}
+
+.map-tab.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.map-tab.active-local {
+    background: var(--green-color);
+    color: white;
+    border-color: var(--green-color);
 }
 
 /* 保存済みリスト */
@@ -297,11 +345,6 @@ body {
     display: block;
     font-weight: bold;
     font-size: 0.9rem;
-}
-
-.spot-time {
-    font-size: 0.75rem;
-    color: var(--text-muted);
 }
 
 .empty-msg {
